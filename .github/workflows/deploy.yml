@@ -1,0 +1,36 @@
+name: CI
+
+env:
+  API_PATH: ConnectFasterInc/apim/Accounts/latest
+  
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ "latest" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+
+      - name: Make HTTP GET request and save response
+        run: |
+          curl -s -X GET "https://elastic.snaplogic.com/api/1/rest/public/apim/export_policies?path={{ $API_PATH }}" > Policies.json	 \
+            -u ${{ secrets.SL_USER }}:${{ secrets.SL_PASSWORD }} \
+      
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "cward@snaplogic.com"
+          git config --global user.name "Chris Ward"
+          git add Policies.json
+          git commit -m "Add Policies.json" || echo "No changes to commit"
+          git push origin "${GITHUB_REF#refs/heads/}"
