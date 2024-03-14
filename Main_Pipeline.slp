@@ -107,7 +107,8 @@
                 "info": {
                     "label": {
                         "value": "Mapper"
-                    }
+                    },
+                    "notes": {}
                 },
                 "input": {
                     "input0": {
@@ -133,6 +134,9 @@
                     "execution_mode": {
                         "value": "Validate & Execute"
                     },
+                    "nullSafeAccess": {
+                        "value": false
+                    },
                     "passThrough": {
                         "value": false
                     },
@@ -145,7 +149,11 @@
                                 "value": [
                                     {
                                         "expression": {
-                                            "expression": true
+                                            "expression": false,
+                                            "value": "Chris"
+                                        },
+                                        "targetPath": {
+                                            "value": "$Name"
                                         }
                                     }
                                 ]
