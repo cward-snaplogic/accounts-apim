@@ -21,16 +21,15 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-
+          
       - name: Make HTTP GET request and save response
         run: |
-          curl -s -X GET "https://elastic.snaplogic.com/api/1/rest/public/apim/export_policies?path={{ $API_PATH }}" > Policies.json	 \
-            -u ${{ secrets.SL_USER }}:${{ secrets.SL_PASSWORD }} \
+          curl -s -X GET "https://elastic.snaplogic.com/api/1/rest/public/apim/export_policies?path=${{ env.API_PATH }}" -u ${{ secrets.SL_USER }}:${{ secrets.SL_PASSWORD }} > Policies.json
       
       - name: Commit and push if changed
         run: |
           git config --global user.email "cward@snaplogic.com"
           git config --global user.name "Chris Ward"
           git add Policies.json
-          git commit -m "Add Policies.json" || echo "No changes to commit"
+          git commit -m "Add Policies.json" || (echo "No changes to commit" && exit 0)
           git push origin "${GITHUB_REF#refs/heads/}"
