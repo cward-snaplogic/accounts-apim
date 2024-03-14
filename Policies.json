@@ -1,5 +1,96 @@
 {
-  "0": [],
+  "0": [
+    {
+      "class_id": "com-snaplogic-policies-auth-authorizebyrole",
+      "class_build_tag": "436patches25266",
+      "class_fqid": "com-snaplogic-policies-auth-authorizebyrole_1-436patches25266",
+      "class_version": 1,
+      "class_label": "Authorize By Role",
+      "property_map": {
+        "settings": {
+          "__control": {
+            "value": "true",
+            "expression": true
+          },
+          "Status": {
+            "value": "Enabled"
+          },
+          "roles": {
+            "value": [
+              {
+                "role": {
+                  "value": "admin",
+                  "expression": false
+                },
+                "condition": {
+                  "value": "true",
+                  "expression": true
+                }
+              }
+            ]
+          }
+        },
+        "info": {
+          "label": {
+            "value": "Authorize By Role"
+          },
+          "notes": {}
+        }
+      },
+      "snap_pack": {
+        "_id": "policies-snap-1-436patches25266",
+        "class_build_tag": "436patches25266",
+        "class_id": "policies",
+        "class_version": 1,
+        "class_fqid": "policies-snap-1-436patches25266"
+      },
+      "update_time": "2024-03-14T14:25:13.268000+00:00",
+      "path": "/ConnectFasterInc/apim/Accounts/latest",
+      "minor": "com-snaplogic-policies-auth-authorizebyrole",
+      "major": "APIM",
+      "owner": "cward@snaplogic.com"
+    },
+    {
+      "class_id": "com-snaplogic-policies-traffic-requestsizelimit",
+      "class_build_tag": "436patches25266",
+      "class_fqid": "com-snaplogic-policies-traffic-requestsizelimit_1-436patches25266",
+      "class_version": 1,
+      "class_label": "Request Size Limit",
+      "property_map": {
+        "settings": {
+          "__control": {
+            "value": "true",
+            "expression": true
+          },
+          "Status": {
+            "value": "Enabled"
+          },
+          "limit": {
+            "value": 10000000,
+            "expression": false
+          }
+        },
+        "info": {
+          "label": {
+            "value": "Request Size Limit"
+          },
+          "notes": {}
+        }
+      },
+      "snap_pack": {
+        "_id": "policies-snap-1-436patches25266",
+        "class_build_tag": "436patches25266",
+        "class_id": "policies",
+        "class_version": 1,
+        "class_fqid": "policies-snap-1-436patches25266"
+      },
+      "update_time": "2024-03-14T14:25:23.979000+00:00",
+      "path": "/ConnectFasterInc/apim/Accounts/latest",
+      "minor": "com-snaplogic-policies-traffic-requestsizelimit",
+      "major": "APIM",
+      "owner": "cward@snaplogic.com"
+    }
+  ],
   "class_id": "com-snaplogic-policy-export",
   "class_version": 1,
   "source_org": "ConnectFasterInc"
